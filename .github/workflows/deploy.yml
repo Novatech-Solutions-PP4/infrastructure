@@ -1,0 +1,22 @@
+name: Sync Infrastructure a VPS
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  sync-config:
+    runs-on: [self-hosted, production]
+
+    steps:
+      - name: Descargar configuración
+        uses: actions/checkout@v4
+
+      - name: Verificar entorno en la VPS
+        run: |
+          echo "Servidor de Oracle - INFRAESTRUCTURA"
+          echo "Carpeta: $(pwd)"
+          docker-compose --version
+          
+      - name: Estado de Docker
+        run: echo "Listo para coordinar los contenedores de Novatech Solutions."
