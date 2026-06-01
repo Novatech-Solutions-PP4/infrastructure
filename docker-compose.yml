@@ -27,6 +27,17 @@ services:
       - db
     networks:
       - lavapro_network
+  
+  frontend:
+    container_name: lavapro-frontend
+    restart: always
+    build:
+      context: /opt/novatech-solutions/runner/_work/frontend/frontend 
+      dockerfile: Dockerfile
+    ports:
+      - "127.0.0.1:3001:80"
+    networks:
+      - lavapro_network  
 
 networks:
   lavapro_network:
