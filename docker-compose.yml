@@ -9,6 +9,7 @@ services:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
+      - /opt/novatech-solutions/runner/_work/backend/backend/app/sql/seed_data.sql:/docker-entrypoint-initdb.d/seed_data.sql
     networks:
       - lavapro_network
 
