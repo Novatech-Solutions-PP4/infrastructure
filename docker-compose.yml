@@ -34,6 +34,8 @@ services:
     build:
       context: /home/ubuntu/frontend 
       dockerfile: Dockerfile
+    env_file:
+      - /opt/novatech-solutions/despliegue/.env
     ports:
       - "127.0.0.1:3001:80"
     networks:
