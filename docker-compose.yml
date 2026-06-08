@@ -19,6 +19,7 @@ services:
     build:
       context: /home/ubuntu/backend
       dockerfile: Dockerfile
+    command: uv run fastapi run app/main.py --port 8000 --host 0.0.0.0 --proxy-headers --forwarded-allow-ips="*"
     env_file:
       - /opt/novatech-solutions/despliegue/.env
     ports:
