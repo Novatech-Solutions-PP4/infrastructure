@@ -9,7 +9,7 @@ services:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
-      - /opt/novatech-solutions/runner/_work/backend/backend/app/sql/seed_data.sql:/docker-entrypoint-initdb.d/seed_data.sql
+      - /home/ubuntu/backend/app/sql/seed_data.sql:/docker-entrypoint-initdb.d/seed_data.sql
     networks:
       - lavapro_network
 
@@ -17,7 +17,7 @@ services:
     container_name: lavapro-backend
     restart: always
     build:
-      context: /opt/novatech-solutions/runner/_work/backend/backend
+      context: /home/ubuntu/backend
       dockerfile: Dockerfile
     env_file:
       - /opt/novatech-solutions/despliegue/.env
@@ -32,7 +32,7 @@ services:
     container_name: lavapro-frontend
     restart: always
     build:
-      context: /opt/novatech-solutions/runner/_work/frontend/frontend 
+      context: /home/ubuntu/frontend 
       dockerfile: Dockerfile
     ports:
       - "127.0.0.1:3001:80"
